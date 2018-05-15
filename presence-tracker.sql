@@ -18,6 +18,6 @@ CREATE TABLE meeting (
 );
 
 INSERT INTO worker (firstName, lastnName)
-  VALUES ('Haris', 'Hajdarevic');
-  VALUES ('Dejan', 'Vujicic');
+  VALUES ('Haris', 'Hajdarevic'),
+  VALUES ('Dejan', 'Vujicic'),
   VALUES ('Haris', 'Tankovic');
