@@ -16,9 +16,7 @@ function getAllWorkers(req, res, next) {
     .then(function (data) {
       res.status(200)
         .json({
-          status: 'success',
-          data: data,
-          message: 'Retrieved ALL workers'
+          data
         });
     })
     .catch(function (err) {
