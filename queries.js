@@ -88,15 +88,21 @@ function updateWorker(req, res, next) {
 
 function removeWorker(req, res, next) {
   var workerID = parseInt(req.params.id);
-  db.result('delete from meeting where workerID = $1 ', workerID)
-    .then(function (result) {
-      /* jshint ignore:start */
-      res.status(200)
-        .json({
-          status: 'success',
-          message: `Removed ${result.rowCount} worker(s)`
-        });
-      /* jshint ignore:end */
+  db.none('delete from meeting where workerID = $1 ', workerID)
+    .then(function () {
+      db.result('delete from worker where workerID = $1 ', workerID)
+      .then(function (result) {
+        /* jshint ignore:start */
+        res.status(200)
+          .json({
+            status: 'success',
+            message: `Removed ${result.rowCount} worker(s)`
+          });
+        /* jshint ignore:end */
+      })
+      .catch(function (err) {
+        return next(err);
+      });
     })
     .catch(function (err) {
       return next(err);
