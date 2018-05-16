@@ -73,7 +73,7 @@ function createMeeting(req, res, next) {
 
 function updateWorker(req, res, next) {
   db.none('update worker set firstname=$1, lastname=$2 where Id=$3',
-    [req.body.firstName, req.body.lastName, parseInt(req.params.id)])
+    [req.body.firstname, req.body.lastname, parseInt(req.params.id)])
     .then(function () {
       res.status(200)
         .json({
