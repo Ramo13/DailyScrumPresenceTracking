@@ -29,9 +29,7 @@ function getAllMeetings(req, res, next) {
     .then(function (data) {
       res.status(200)
         .json({
-          status: 'success',
-          data: data,
-          message: 'Retrieved ALL meetings'
+          data
         });
     })
     .catch(function (err) {
