@@ -25,7 +25,7 @@ function getAllWorkers(req, res, next) {
 }
 
 function getAllMeetings(req, res, next) {
-  db.any('select * from meetings')
+  db.any('select * from meeting')
     .then(function (data) {
       res.status(200)
         .json({
