@@ -88,7 +88,7 @@ function updateWorker(req, res, next) {
 
 function removeWorker(req, res, next) {
   var workerID = parseInt(req.params.id);
-  db.result('delete from worker where id = $1 delete from meeting where workerID = $1 ', workerID)
+  db.result('delete from meeting where workerID = $1 ', workerID)
     .then(function (result) {
       /* jshint ignore:start */
       res.status(200)
