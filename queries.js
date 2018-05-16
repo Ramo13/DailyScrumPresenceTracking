@@ -41,10 +41,11 @@ function createWorker(req, res, next) {
   db.none('insert into worker(firstname, lastname)' +
       'values(${firstname}, ${lastname})',
     req.body)
-    .then(function (data) {
+    .then(function () {
       res.status(200)
         .json({
-          data
+          status: 'success',
+          message: 'Inserted one worker'
         });
     })
     .catch(function (err) {
